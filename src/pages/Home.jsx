@@ -61,9 +61,9 @@ export const Home = () => {
                     </nav>
                     <div className="text-center p-10 py-10">
                         <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">Sahil Godwal</h2>
-                        <h3 className="text-2xl py-2 dark:text-white md:text-3xl">Front-end Developer</h3>
+                        <h3 className="text-2xl py-2 dark:text-white md:text-3xl">Software Developer</h3>
                         <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-                            Front-end developer with programming skills along with designing the App.
+                            Software developer with programming skills along with designing the App.
                             Join me down below and let's get cracking!
                         </p>
                         <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400" >
@@ -95,7 +95,7 @@ export const Home = () => {
                         <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
                             I worked on wide range of services, including brand design,
                             programming and teaching. Major technologies on which I worked included
-                            <span className="text-teal-500"> React, Redux, Mobx, Js, HTML & CSS </span>
+                            <span className="text-teal-500"> React, Java, Spring Boot, Redux, Mobx, Js, Ts, Flutter, Firebase, HTML & CSS </span>
                         </p>
                     </div>
                     <div className="lg:flex gap-10">
@@ -203,7 +203,7 @@ export const Home = () => {
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://sahilgodwal-portfolio.netlify.app/" target="_blank">
+                            <a href="https://easerelease.ocr-inc.com/" target="_blank">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
