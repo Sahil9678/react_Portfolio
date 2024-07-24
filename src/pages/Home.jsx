@@ -108,6 +108,8 @@ export const Home = () => {
                                 Creating elegant and user-friendly web portals following core design theory
                             </p>
                             <h4 className="py-4 text-teal-600">Developer Tools I Use</h4>
+                            <p className="text-gray-800 py-1">Eclipse</p>
+                            <p className="text-gray-800 py-1">HeidiSQL</p>
                             <p className="text-gray-800 py-1">VS Code</p>
                             <p className="text-gray-800 py-1">PostMan</p>
                             <p className="text-gray-800 py-1">Sublime text 3</p>
