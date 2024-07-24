@@ -133,6 +133,7 @@ export const Home = () => {
                                 Here are some of the Projects I have worked on
                             </p>
                             <h4 className="py-4 text-teal-600">Projects I have contributed to</h4>
+                            <p className="text-gray-800 py-1">Compliance portal</p>
                             <p className="text-gray-800 py-1">Loan-Management-System</p>
                             <p className="text-gray-800 py-1">Globallogic Website</p>
                             <p className="text-gray-800 py-1">Synoxperts Website</p>
