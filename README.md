@@ -24,14 +24,14 @@ The goal is to give recruiters and visitors a seamless and engaging experience w
 
 react_Portfolio/
 ├── public/
-│   └── index.html
+│ └── index.html
 ├── src/
-│   ├── document/
-│   │   └── Sahil-Godwal-Resumeuk.pdf
-│   ├── Images/      # Images and icons
-│   ├── pages/
-│   │   └── Home.jsx
-│   └── App.jsx
+│ ├── document/
+│ │ └── Sahil-Godwal-Resumeuk.pdf
+│ ├── Images/ # Images and icons
+│ ├── pages/
+│ │ └── Home.jsx
+│ └── App.jsx
 └── README.md
 
 ## 🚀 Getting Started
@@ -42,9 +42,10 @@ To run the project locally:
    ```bash
    git clone https://github.com/Sahil9678/react_Portfolio.git
    cd react_Portfolio
+   ```
 
 📬 Contact
 
 Feel free to connect with me:
-	•	**LinkedIn**: Sahil Godwal
-	•	**Email**: sahilgodwal9678@gmail.com
+• **LinkedIn**: Sahil Godwal
+• **Email**: sahilgodwal9678@gmail.com
