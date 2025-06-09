@@ -17,7 +17,7 @@ import web3 from "../Images/web3.png";
 import web4 from "../Images/web4.png";
 import web5 from "../Images/web5.png";
 import web6 from "../Images/web6.png";
-import resume from "../document/Sahil-Godwal-Resumeuk.pdf";
+import resume from "../document/Sahil_Godwal_Resume.pdf";
 
 export const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
