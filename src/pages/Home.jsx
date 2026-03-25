@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect,useRef, useState } from 'react'
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import {
     AiOutlineMail,
     AiFillLinkedin,
@@ -21,9 +23,69 @@ import resume from "../document/Sahil_Godwal_Resume.pdf";
 
 export const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const container = useRef();
+    const { contextSafe } = useGSAP({scope: container}); 
 
+
+      const onMouseMove =contextSafe((e) => {
+        gsap.set(".right", { xPercent: 150, yPercent: 0 });
+        gsap.set(".left", { xPercent: -150, yPercent: 0 });
+        gsap.set(".top", { xPercent: 0, yPercent: 150 });
+        gsap.set(".bottom", { xPercent: 0, yPercent: -150 });
+        let targetsrightBall = gsap.utils.toArray(".right");
+        let targetsleftBall = gsap.utils.toArray(".left");
+        let targetstopBall = gsap.utils.toArray(".top");
+        let targetsbottomBall = gsap.utils.toArray(".bottom");
+
+        gsap.to(targetsleftBall, {
+            duration: 0.4,
+            x: e.pageX- 5,
+            y: e.pageY - 7,
+            ease: "power1.out",
+            overwrite: "auto",
+            stagger: 0.02,
+        })
+        gsap.to(targetsrightBall, {
+            duration: 0.4,
+            x: e.pageX- 5,
+            y: e.pageY- 7,
+            ease: "power1.out",
+            overwrite: "auto",
+            stagger: 0.02,
+        })
+        gsap.to(targetstopBall, {
+            duration: 0.4,
+            x: e.pageX - 5,
+            y: e.pageY - 7,
+            ease: "power1.out",
+            overwrite: "auto",
+            stagger: 0.02,
+        })
+        gsap.to(targetsbottomBall, {
+            duration: 0.4,
+            x: e.pageX - 5,
+            y: e.pageY - 7,
+            ease: "power1.out",
+            overwrite: "auto",
+            stagger: 0.02,
+        })
+
+      });
+    
     return (
-        <div className={darkMode ? "dark" : ""}>
+        <div className={darkMode ? "dark" : ""} 
+            ref={container}
+            // onMouseMove={onMouseMove}
+        >
+            {/* <div>
+                <div className={`${darkMode ? "bg-white" : "bg-black"} ball left w-6 h-6 stroke-0 fixed top-0 left-0 rounded-full text-white`}>1</div>
+                
+                <div className={` ${darkMode ? "bg-white" : "bg-black"}  ball right w-6 h-6 stroke-0 fixed top-0 left-0 rounded-full  text-white`}>2</div>
+                
+                <div className={` ${darkMode ? "bg-white" : "bg-black"}  ball top w-6 h-6 stroke-0 fixed top-0 left-0 rounded-full  text-white`}>3</div>
+
+                <div className={` ${darkMode ? "bg-white" : "bg-black"}  ball bottom w-6 h-6 stroke-0 fixed top-0 left-0 rounded-full  text-white`}>4</div>
+            </div> */}
             <head>
                 <title>
                     Sahil Godwal Portfolio
@@ -35,11 +97,12 @@ export const Home = () => {
                 <section className='min-h-screen'>
                     <nav className="py-10 mb-12 flex justify-between dark:text-white">
                         <button onClick={() => window.scrollTo({
-                            top: 500,
-                            behavior: 'smooth'
-                        })}>
+                                top: 500,
+                                behavior: 'smooth'
+                            })}
+                        >
                             <h1 className="font-burtons text-xl">
-                                <img src={darkMode ? portfolioIconDark : portfolioIcon} class="object-scale-down h-10 w-10" />
+                                <img src={darkMode ? portfolioIconDark : portfolioIcon} class="object-scale-down h-10 w-10" alt='Moonlight' />
                             </h1>
                         </button>
                         <ul className="flex items-center">
@@ -52,7 +115,7 @@ export const Home = () => {
                             <li>
                                 <a
                                     className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8"
-                                    href={resume} target='_blank'
+                                    href={resume} target='_blank' rel="noreferrer"
                                 >
                                     Resume
                                 </a>
@@ -67,18 +130,18 @@ export const Home = () => {
                             Join me down below and let's get cracking!
                         </p>
                         <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400" >
-                            <a href='mailto:godwalsahil786@gmail.com' target="_blank">
+                            <a href='mailto:godwalsahil786@gmail.com' target="_blank" rel="noreferrer" >
                                 <AiOutlineMail className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 dark:hover:text-gray-100 hover:text-gray-800 hover:cursor-pointer' />
                             </a>
-                            <a href='https://github.com/Sahil9678' target="_blank">
+                            <a href='https://github.com/Sahil9678' target="_blank" rel="noreferrer" >
                                 <AiFillGithub className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 dark:hover:text-gray-100 hover:text-gray-800 hover:cursor-pointer' />
                             </a>
-                            <a href='https://www.linkedin.com/in/sahil-godwal-a58418101/' target="_blank">
+                            <a href='https://www.linkedin.com/in/sahil-godwal-a58418101/' target="_blank" rel="noreferrer" >
                                 <AiFillLinkedin className='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 dark:hover:text-gray-100 hover:text-gray-800 hover:cursor-pointer' />
                             </a>
                         </div>
                         <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full relative overflow-hidden mt-20 md:h-96 md:w-96">
-                            <img src={deved} layout="fill" objectFit="cover" />
+                            <img src={deved} layout="fill" objectFit="cover" alt='deved' />
                         </div>
                     </div>
                 </section>
@@ -86,7 +149,7 @@ export const Home = () => {
                     <div>
                         <h3 className="text-3xl dark:text-gray-200">Things I learned so far</h3>
                         <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-                            Since the beginning of my journey as a developer, I've worked with products based
+                            Since the beginning of my journey as a developer, I've worked with products and service based
                             <span className="text-teal-500"> agencies </span>
                             <span className="text-teal-500">and startups </span>
                             and collaborated with talanted people to create digital products
@@ -95,12 +158,12 @@ export const Home = () => {
                         <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
                             I worked on wide range of services, including brand design,
                             programming and teaching. Major technologies on which I worked included
-                            <span className="text-teal-500"> React, Java, Spring Boot, Redux, Mobx, Js, Ts, Flutter, Firebase, HTML & CSS </span>
+                            <span className="text-teal-500"> React,React Native, Express.js, Node.js, Java, Spring, Redux, Mobx, Zustand, Js, Ts, MySQL, PostgresSql, Flutter, Firebase, HTML/CSS and .....</span>
                         </p>
                     </div>
                     <div className="lg:flex gap-10">
                         <div className="text-center cursor-pointer shadow-lg p-10 rounded-xl my-10  dark:bg-white flex-1">
-                            <img src={design} className='my-0 mx-auto' width={100} height={100} />
+                            <img src={design} className='my-0 mx-auto' width={100} height={100} alt='design' />
                             <h3 className="text-lg font-medium pt-8 pb-2">
                                 Beautiful Websites
                             </h3>
@@ -116,7 +179,7 @@ export const Home = () => {
 
                         </div>
                         <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-                            <img src={code} className='my-0 mx-auto' width={100} height={100} />
+                            <img src={code} className='my-0 mx-auto' width={100} height={100} alt='code' />
                             <h3 className="text-lg font-medium pt-8 pb-2 ">
                                 Code Our dream project
                             </h3>
@@ -129,7 +192,7 @@ export const Home = () => {
                             <p className="text-gray-800 py-1">Figma</p>
                         </div>
                         <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-                            <img src={consulting} className='my-0 mx-auto' width={100} height={100} />
+                            <img src={consulting} className='my-0 mx-auto' width={100} height={100} alt='consulting' />
                             <h3 className="text-lg font-medium pt-8 pb-2 ">Projects</h3>
                             <p className="py-2">
                                 Here are some of the Projects I have worked on
@@ -151,68 +214,74 @@ export const Home = () => {
                     </div>
                     <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://lms.synofin.tech/" target="_blank">
+                            <a href="https://lms.synofin.tech/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg "
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web1}
+                                    alt='web1'
                                 />
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="http://synoasses.com/" target="_blank">
+                            <a href="http://synoasses.com/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web2}
+                                    alt='web2'
                                 />
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://www.synoxperts.com/" target="_blank">
+                            <a href="https://www.synoxperts.com/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web3}
+                                    alt='web3'
                                 />
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://upsideai.com/emerging-bluechip/" target="_blank">
+                            <a href="https://upsideai.com/emerging-bluechip/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web4}
+                                    alt='web4'
                                 />
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://upstox.com/" target="_blank">
+                            <a href="https://upstox.com/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web5}
+                                    alt='web5'
                                 />
                             </a>
                         </div>
                         <div className="basis-1/3 flex-1 text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer ">
-                            <a href="https://easerelease.ocr-inc.com/" target="_blank">
+                            <a href="https://easerelease.ocr-inc.com/" target="_blank" rel="noreferrer">
                                 <img
                                     className="rounded-lg object-cover shadow-lg"
                                     width={"100%"}
                                     height={"100%"}
                                     layout="responsive"
                                     src={web6}
+                                    alt='web6'
                                 />
                             </a>
                         </div>
